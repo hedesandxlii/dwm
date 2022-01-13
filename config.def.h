@@ -32,8 +32,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	// { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	// { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, };
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+};
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
@@ -61,7 +61,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "gnome-terminal", NULL };
+static const char *quit_confirm[] = { "quit_confirm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -97,7 +98,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = quit_confirm} },
 };
 
 /* button definitions */
