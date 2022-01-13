@@ -49,6 +49,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define SUPERKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -62,7 +63,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "gnome-terminal", NULL };
-static const char *quit_confirm[] = { "quit_confirm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -98,7 +98,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = quit_confirm} },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("quit_confirm") },
+
+	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") }
 };
 
 /* button definitions */
