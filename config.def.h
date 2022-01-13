@@ -22,6 +22,7 @@ static const char *colors[][3]      = {
 static const char *const autostart[] = {
 	"status_bar", NULL,
     "sh", "-c", "setxkbmap -option caps:escape us", NULL,
+    "sh", "-c", "xautolock -time 10 -locker slock", NULL,
 	NULL /* terminate */
 };
 
@@ -105,7 +106,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("quit_confirm") },
 
-	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") }
+	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") },
+	{ SUPERKEY,                     XK_l,      spawn,          SHCMD("slock") },
 };
 
 /* button definitions */
