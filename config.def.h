@@ -19,7 +19,8 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"sh", "-c", "status_bar", NULL,
+	"status_bar", NULL,
+    "sh", "-c", "setxkbmap -option caps:escape us", NULL,
 	NULL /* terminate */
 };
 
