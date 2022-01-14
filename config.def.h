@@ -21,8 +21,9 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"status_bar", NULL,
+    "setup_xinput", "12", NULL,
     "sh", "-c", "setxkbmap -option caps:escape us", NULL,
-    "sh", "-c", "xautolock -time 10 -locker slock", NULL,
+    "sh", "-c", "/home/$USER/.fehbg", NULL,
 	NULL /* terminate */
 };
 
