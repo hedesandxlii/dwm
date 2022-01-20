@@ -29,6 +29,8 @@ static const char *const autostart[] = {
     "setup_xinput", "12", NULL,
     "sh", "-c", "setxkbmap -option caps:escape us", NULL,
     "sh", "-c", "/home/$USER/.fehbg", NULL,
+    "sh", "-c", "nm-applet", NULL,
+    "sh", "-c", "pasystray", NULL,
 	NULL /* terminate */
 };
 
