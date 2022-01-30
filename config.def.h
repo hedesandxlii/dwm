@@ -117,6 +117,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("quit_confirm") },
+	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") },
+	{ SUPERKEY,                     XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }
 };
 
