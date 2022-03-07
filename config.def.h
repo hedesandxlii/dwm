@@ -71,6 +71,8 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#define SCROT_CMD  ("scrot '%Y-%m-%d_$wx$h.png' -s -e 'mv $f ~/Pictures/Screenshots/'")
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -119,7 +121,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("quit_confirm") },
 	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") },
 	{ SUPERKEY,                     XK_l,      spawn,          SHCMD("slock") },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ 0,                            XK_Print,  spawn,          SHCMD(SCROT_CMD) }
 };
 
 /* button definitions */
