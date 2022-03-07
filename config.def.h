@@ -46,6 +46,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ NULL,       NULL,       EXPTOOL,    0,            1,           -1 },
+	{ "Microsof Teams - Preview",
+	              NULL,       EXPTOOL,    1 << 3,       0,           -1 },
 };
 /* layout(s) */
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
