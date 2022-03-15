@@ -12,7 +12,10 @@ static unsigned int borderpx  = 1;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[] = {
+    "RuneScape UF:size=12",
+    "monospace:size=10",
+};
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -36,7 +39,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 #define EXPTOOL ("Acconeer Exploration GUI")
 static const Rule rules[] = {
 	/* xprop(1):
@@ -46,8 +49,6 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ NULL,       NULL,       EXPTOOL,    0,            1,           -1 },
-	{ "Microsof Teams - Preview",
-	              NULL,       EXPTOOL,    1 << 3,       0,           -1 },
 };
 /* layout(s) */
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
