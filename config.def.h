@@ -1,14 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static unsigned int gappx     = 20;        /* gaps between windows */
+
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 
-static unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 5;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
@@ -35,6 +36,7 @@ static const char *const autostart[] = {
     "setup_systray", NULL,
     "sh", "-c", "setxkbmap -option caps:escape us", NULL,
     "sh", "-c", "/home/$USER/.fehbg", NULL,
+    "picom", "-b", NULL,
 	NULL /* terminate */
 };
 
@@ -101,6 +103,7 @@ ResourcePref resources[] = {
 		{ "nmaster",          	INTEGER, &nmaster },
 		{ "resizehints",       	INTEGER, &resizehints },
 		{ "mfact",      	 	FLOAT,   &mfact },
+		{ "gappx",      	 	INTEGER, &gappx },
 };
 
 static Key keys[] = {
