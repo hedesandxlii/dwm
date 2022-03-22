@@ -85,11 +85,14 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 #include "movestack.c" /* quite ugly but wth */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-static const char *upvol[]    = { "pactl", "set-sink-volume", "0", "+5%",    NULL };
-static const char *downvol[]  = { "pactl", "set-sink-volume", "0", "-5%",    NULL };
-static const char *mute[]     = { "pactl", "set-sink-mute",   "0", "toggle", NULL };
+static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]        = { "kitty", NULL };
+static const char *upvol[]          = { "pactl", "set-sink-volume", "0", "+5%",    NULL };
+static const char *downvol[]        = { "pactl", "set-sink-volume", "0", "-5%",    NULL };
+static const char *mute[]           = { "pactl", "set-sink-mute",   "0", "toggle", NULL };
+static const char *play_pause[]     = { "playerctl", "play-pause", NULL };
+static const char *next[]           = { "playerctl", "next", NULL };
+static const char *previous[]       = { "playerctl", "previous", NULL };
 
 
 /*
@@ -160,6 +163,9 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = downvol} },
 	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol} },
 	{ 0,                            XF86XK_AudioMute,         spawn,          {.v = mute} }
+	{ 0,                            XF86XK_AudioPlay,         spawn,          {.v = play_pause} }
+	{ 0,                            XF86XK_AudioNext,         spawn,          {.v = next} }
+	{ 0,                            XF86XK_AudioPrev,         spawn,          {.v = previous} }
 };
 
 /* button definitions */
