@@ -16,7 +16,7 @@ static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
-    "RuneScape UF:size=12",
+    "IBMPlexMono:size=10",
     "monospace:size=10",
 };
 static const char dmenufont[]       = "monospace:size=10";
@@ -162,9 +162,9 @@ static Key keys[] = {
 
 	{ 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = downvol} },
 	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol} },
-	{ 0,                            XF86XK_AudioMute,         spawn,          {.v = mute} }
-	{ 0,                            XF86XK_AudioPlay,         spawn,          {.v = play_pause} }
-	{ 0,                            XF86XK_AudioNext,         spawn,          {.v = next} }
+	{ 0,                            XF86XK_AudioMute,         spawn,          {.v = mute} },
+	{ 0,                            XF86XK_AudioPlay,         spawn,          {.v = play_pause} },
+	{ 0,                            XF86XK_AudioNext,         spawn,          {.v = next} },
 	{ 0,                            XF86XK_AudioPrev,         spawn,          {.v = previous} }
 };
 
