@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static unsigned int gappx     = 20;        /* gaps between windows */
 
@@ -84,7 +86,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 
 #include "movestack.c" /* quite ugly but wth */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "terminator", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *upvol[]    = { "pactl", "set-sink-volume", "0", "+5%",    NULL };
+static const char *downvol[]  = { "pactl", "set-sink-volume", "0", "-5%",    NULL };
+static const char *mute[]     = { "pactl", "set-sink-mute",   "0", "toggle", NULL };
+
 
 /*
  * Xresources preferences to load at startup
@@ -149,7 +155,11 @@ static Key keys[] = {
 	{ SUPERKEY,                     XK_space,  spawn,          SHCMD("kblayout_switcher") },
 	{ SUPERKEY,                     XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
-	{ 0,                            XK_Print,  spawn,          SHCMD(SCROT_CMD) }
+	{ 0,                            XK_Print,  spawn,          SHCMD(SCROT_CMD) },
+
+	{ 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = downvol} },
+	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol} },
+	{ 0,                            XF86XK_AudioMute,         spawn,          {.v = mute} }
 };
 
 /* button definitions */
