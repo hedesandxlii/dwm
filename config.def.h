@@ -32,15 +32,7 @@ static char *colors[][3] = {
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
-static const char *const autostart[] = {
-	"status_bar", NULL,
-    "setup_xinput", NULL,
-    "setup_systray", NULL,
-    "sh", "-c", "setxkbmap -option caps:escape us", NULL,
-    "sh", "-c", "/home/$USER/.fehbg", NULL,
-    "picom", "-b", NULL,
-	NULL /* terminate */
-};
+static const char *const autostart[] = { NULL }; /* should look into removing this at some point */
 
 /* tagging */
 static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
