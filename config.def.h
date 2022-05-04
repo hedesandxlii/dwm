@@ -69,7 +69,8 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd)    { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define EMACS_CLIENT  { .v = (const char*[]){ "emacsclient", "-c", "-a", "'emacs'", NULL } }
 
 #define SCROT_CMD  ("scrot '%Y-%m-%d_$wx$h.png' -s -e 'mv $f ~/Pictures/Screenshots/'")
 
@@ -151,6 +152,8 @@ static Key keys[] = {
 	{ SUPERKEY,                     XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
 	{ 0,                            XK_Print,  spawn,          SHCMD(SCROT_CMD) },
+
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          EMACS_CLIENT },
 
 	{ 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = downvol} },
 	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol} },
